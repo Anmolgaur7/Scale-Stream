@@ -1,6 +1,7 @@
 import { LoginForm } from "@/components/auth/login-form"
 import Link from "next/link"
 import { VideoIcon } from "lucide-react"
+import { Suspense } from "react"
 
 export default function LoginPage() {
   return (
@@ -15,9 +16,13 @@ export default function LoginPage() {
           <p className="mt-2 text-muted-foreground">Sign in to your account to continue</p>
         </div>
 
+
         <div className="glass-strong rounded-2xl p-8">
-          <LoginForm />
+          <Suspense fallback={<div className="flex justify-center p-4">Loading...</div>}>
+            <LoginForm />
+          </Suspense>
         </div>
+
 
         <p className="text-center text-sm text-muted-foreground">
           Don't have an account?{" "}
